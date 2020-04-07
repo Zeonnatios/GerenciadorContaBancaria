@@ -29,6 +29,7 @@ public class Cliente {
         this.nome = sc.next();
         System.out.println("Digite o cpf do cliente: ");
         this.cpf = sc.next();
+        System.out.println("");
     }
 
     public String getNome() {

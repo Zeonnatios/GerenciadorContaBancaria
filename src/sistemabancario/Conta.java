@@ -11,9 +11,9 @@ package sistemabancario;
  */
 public class Conta {
 
-    private int numero;
-    private double saldo;
-    private String cpf;
+    protected int numero;
+    protected double saldo;
+    protected String cpf;
 
     public Conta(int valor, String cpf, int numero) {
         //construtor
@@ -22,16 +22,15 @@ public class Conta {
         this.numero = numero;
     }
 
-    public boolean saque(double saque) {
-        boolean sacou = false;
+    public void saque(double saque) {
         if (this.saldo >= saque) {
             this.saldo = this.saldo - saque;
             System.out.println("Saque realizado com sucesso!");
-            sacou = true;
+            System.out.println("Novo saldo: " + saldo + " R$");
         } else {
-            System.out.println("Saldo insuficiente!");
+            System.out.println("Saldo insuficiente! Faça depósito");
         }
-        return sacou;
+
     }
 
     public boolean deposito(double valor) {
@@ -39,6 +38,7 @@ public class Conta {
         if (valor > 0) {
             this.saldo = this.saldo + valor;
             System.out.println("Depósito realizado com sucesso!");
+            System.out.println("Novo saldo: " + saldo + " R$");
             depositou = true;
         } else {
             System.out.println("Depósito não efetuado!");
